@@ -1,7 +1,7 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
 import * as React from 'react'
 import { commandScore } from './command-score'
-import { useSyncExternalStore } from 'use-sync-external-store'
+import { useSyncExternalStore } from 'use-sync-external-store/shim'
 import { useId } from './id'
 
 type Children = { children?: React.ReactNode }
