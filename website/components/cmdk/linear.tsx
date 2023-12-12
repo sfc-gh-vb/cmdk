@@ -1,4 +1,4 @@
-import { Command } from '@sfc-gh-vb/cmdk'
+import { Command } from '@sfc-gh-vb-snowvation-1/cmdk'
 
 export function LinearCMDK() {
   return (

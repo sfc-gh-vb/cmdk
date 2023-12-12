@@ -1,5 +1,5 @@
 import React from 'react'
-import { Command } from '@sfc-gh-vb/cmdk'
+import { Command } from '@sfc-gh-vb-snowvation-1/cmdk'
 
 export function VercelCMDK() {
   const ref = React.useRef<HTMLDivElement | null>(null)

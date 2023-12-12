@@ -51,7 +51,7 @@ importers:
 
   test:
     dependencies:
-      '@sfc-gh-vb/cmdk':
+      '@sfc-gh-vb-snowvation-1/cmdk':
         specifier: workspace:*
         version: link:../cmdk
       '@types/node':
@@ -81,7 +81,7 @@ importers:
       '@radix-ui/react-popover':
         specifier: ^0.1.6
         version: 0.1.6(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
-      '@sfc-gh-vb/cmdk':
+      '@sfc-gh-vb-snowvation-1/cmdk':
         specifier: workspace:*
         version: link:../cmdk
       copy-to-clipboard:
