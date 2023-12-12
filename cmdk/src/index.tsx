@@ -1,8 +1,7 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
 import * as React from 'react'
 import { commandScore } from './command-score'
-import {useId} from './id';
-import { useSyncExternalStore } from './store';
+import { useSyncExternalStore } from 'use-sync-external-store'
 
 type Children = { children?: React.ReactNode }
 type DivProps = React.HTMLAttributes<HTMLDivElement>
@@ -169,9 +168,9 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>((props, forwarded
   const propsRef = useAsRef(props)
   const { label, children, value, onValueChange, filter, shouldFilter, vimBindings = true, ...etc } = props
 
-  const listId = useId()
-  const labelId = useId()
-  const inputId = useId()
+  const listId = React.useId()
+  const labelId = React.useId()
+  const inputId = React.useId()
 
   const schedule = useScheduleLayoutEffect()
 
@@ -598,14 +597,12 @@ const Command = React.forwardRef<HTMLDivElement, CommandProps>((props, forwarded
  * the rendered item's `textContent`.
  */
 const Item = React.forwardRef<HTMLDivElement, ItemProps>((props, forwardedRef) => {
-  const id = useId()
+  const id = React.useId()
   const ref = React.useRef<HTMLDivElement>(null)
   const groupContext = React.useContext(GroupContext)
   const context = useCommand()
   const propsRef = useAsRef(props)
   const forceMount = propsRef.current?.forceMount ?? groupContext?.forceMount
-
-  
 
   useLayoutEffect(() => {
     return context.item(id, groupContext?.id)
@@ -664,10 +661,10 @@ const Item = React.forwardRef<HTMLDivElement, ItemProps>((props, forwardedRef) =
  */
 const Group = React.forwardRef<HTMLDivElement, GroupProps>((props, forwardedRef) => {
   const { heading, children, forceMount, ...etc } = props
-  const id = useId()
+  const id = React.useId()
   const ref = React.useRef<HTMLDivElement>(null)
   const headingRef = React.useRef<HTMLDivElement>(null)
-  const headingId = useId()
+  const headingId = React.useId()
   const context = useCommand()
   const render = useCmdk((state) =>
     forceMount ? true : context.filter() === false ? true : !state.search ? true : state.filtered.groups.has(id),
@@ -957,7 +954,7 @@ function mergeRefs<T = any>(refs: Array<React.MutableRefObject<T> | React.Legacy
 function useCmdk<T = any>(selector: (state: State) => T) {
   const store = useStore()
   const cb = () => selector(store.snapshot())
-  return useSyncExternalStore(store.subscribe, cb)
+  return React.useSyncExternalStore(store.subscribe, cb, cb)
 }
 
 function useValue(

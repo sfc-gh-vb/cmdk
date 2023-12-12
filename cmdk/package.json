@@ -15,15 +15,18 @@
     "dev": "tsup src --watch"
   },
   "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "1.0.0",
-    "@radix-ui/react-use-layout-effect": "^1.0.1"
+    "@radix-ui/react-use-layout-effect": "^1.0.1",
+    "@types/use-sync-external-store": "^0.0.6",
+    "use-sync-external-store": "^1.2.0"
   },
   "devDependencies": {
-    "@types/react": "18.0.15"
+    "@types/react": "*",
+    "@types/react-dom": "*"
   },
   "sideEffects": false
 }

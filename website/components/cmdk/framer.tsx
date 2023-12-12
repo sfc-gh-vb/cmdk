@@ -1,4 +1,4 @@
-import { Command } from 'cmdk'
+import { Command } from '@sfc-gh-vb/cmdk'
 import React from 'react'
 
 export function FramerCMDK() {
